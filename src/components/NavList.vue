@@ -22,8 +22,7 @@ export default {
       <a
         @click="$emit('clicked')"
         class="block hover:text-indigo-800 transition-colors p-2"
-        :href="'#' + l.link"
-      >
+        :href="'#' + l.link">
         {{ l.txt || l.link }}
       </a>
     </li>

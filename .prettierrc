@@ -1,4 +1,5 @@
 {
   "singleQuote": true,
-  "singleAttributePerLine": false
+  "objectWrap": "collapse",
+  "bracketSameLine": true
 }
