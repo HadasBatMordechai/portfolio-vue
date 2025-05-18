@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+@theme {
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+section {
+  @apply text-sm lg:text-base/relaxed font-light px-5 py-8 md:p-10 lg:px-20;
+}
+
+h3 {
+  @apply text-xl lg:text-3xl font-normal capitalize pb-2;
+}
+
+h4 {
+  @apply text-[#494d1a] text-[0.95rem] sm:text-base lg:text-xl font-normal pt-2 lg:pt-3 pb-1 lg:pb-2;
+}
