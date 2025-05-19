@@ -1,4 +1,11 @@
 <script>
+import { register as registerSwiper } from 'swiper/element/bundle';
+
+//import 'swiper/swiper-bundle.css';
+
+//import 'swiper/css';
+//import 'swiper/css/navigation';
+
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue';
 import AppNav from './components/AppNav.vue';
 
@@ -8,7 +15,37 @@ export default {
   data() {
     return {
       at_top: true, // TODO
+      swiperInstance: null,
     };
+  },
+
+  beforeMount() {
+    registerSwiper();
+  },
+
+  mounted() {
+    const swiperEl = this.$refs.swiper;
+    this.swiperInstance = {
+      // configure Swiper to use modules
+      //modules: [Navigation, Pagination],
+      loop: true,
+      navigation: true,
+      spaceBetween: 30,
+      slidesPerView: 1.5,
+    };
+
+    // now we need to assign all parameters to Swiper element
+    Object.assign(swiperEl, this.swiperInstance);
+
+    // and now initialize it
+    swiperEl.initialize();
+  },
+
+  beforeUnmount() {
+    if (this.swiperInstance) {
+      this.swiperInstance.destroy();
+      this.swiperInstance = null;
+    }
   },
 };
 </script>
@@ -77,9 +114,8 @@ export default {
             <strong>JavaScript</strong>.
           </li>
           <li>
-            In the past, we styled everything with pure CSS — luckily, those
-            days are behind us! Today, we use <strong>Tailwind CSS</strong> (in
-            this project I used version 4).
+            In the past, we styled everything with pure CSS — today, we use
+            <strong>Tailwind CSS</strong> (in this project I used version 4).
           </li>
           <li>
             For accessibility and effects, I also installed
@@ -92,10 +128,13 @@ export default {
             of course, I added those too.
           </li>
           <li>
-            And last but not least: after setting up the basics, I pushed
-            everything to <strong>Git</strong>.
+            Although I typically work with <strong>PhpStorm</strong>, this page
+            was built in <strong>VS Code</strong>.
           </li>
-          <li>Let the real fun begin!</li>
+          <li>
+            Last but not least: after setting up the basics, I pushed everything
+            to <strong>Git</strong>.
+          </li>
         </ul>
       </div>
       <div
@@ -226,32 +265,33 @@ export default {
   <section id="projects" class="bg-indigo-50/50">
     <h3>Selected projects</h3>
     <!-- TODO complete soon... -->
-    <ul class="list-disc px-5 [&_li]:py-1">
-      <li>
+
+    <swiper-container ref="swiper">
+      <swiper-slide>
         <a
           href="https://your-way.org.il/he"
           target="_blank"
-          class="underline hover:text-blue-950">
+          class="p-8 underline hover:text-blue-950">
           Your Way - Ministry of Transport and Road Safety
         </a>
-      </li>
-      <li>
+      </swiper-slide>
+      <swiper-slide>
         <a
           href="https://harama.co.il/en"
           target="_blank"
-          class="underline hover:text-blue-950">
+          class="p-8 underline hover:text-blue-950">
           HARAMA Golan Heights Project
         </a>
-      </li>
-      <li>
+      </swiper-slide>
+      <swiper-slide>
         <a
           href="https://feibel-15.co.il"
           target="_blank"
-          class="underline hover:text-blue-950">
+          class="p-8 underline hover:text-blue-950">
           Feibel 15
         </a>
-      </li>
-    </ul>
+      </swiper-slide>
+    </swiper-container>
   </section>
 
   <section id="why" class="md:flex">
