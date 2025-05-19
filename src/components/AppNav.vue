@@ -33,7 +33,7 @@ export default {
               aria-label="Open navbar"
               class="block w-7 h-0.5 m-1 rounded-full bg-current"
               v-for="i in 3"
-              xkey="i" />
+              :key="i" />
           </template>
         </PopoverButton>
         <transition
