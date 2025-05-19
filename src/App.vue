@@ -268,7 +268,7 @@ export default {
     </ul>
   </section>
 
-  <section id="projects" class="bg-indigo-50">
+  <section id="projects" class="bg-indigo-50 pb-5">
     <h3 class="-mb-8 md:-mb-10">Selected projects</h3>
     <!-- TODO complete soon... -->
 
@@ -381,9 +381,9 @@ export default {
 
   <section id="contact" class="bg-gradient-to-b from-indigo-50/50 via-white">
     <h3>Get in touch</h3>
-    <!-- TODO complete soon... -->
-    <p>
-      Connect with me on
+    <h4>II'd love to hear from you!</h4>
+    <p class="pt-3">
+      Feel free to connect with me on
       <a
         href="https://www.linkedin.com/in/hadas-ben-mordechai/"
         target="_blank"

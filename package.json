@@ -17,7 +17,6 @@
   "devDependencies": {
     "@eslint/js": "^9.27.0",
     "@headlessui/vue": "^1.7.23",
-    "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/vite": "^4.1.7",
     "@vitejs/plugin-vue": "^5.2.3",
     "eslint": "^9.27.0",
