@@ -137,8 +137,9 @@ export default {
             was built in <strong>VS Code</strong>.
           </li>
           <li>
-            Last but not least: after setting up the basics, I pushed everything
-            to <strong>Git</strong>.
+            The codebase is managed with <strong>Git</strong> and hosted on
+            <strong>GitHub</strong>, with automated processes facilitated by
+            GitHub Actions.
           </li>
         </ul>
       </div>
