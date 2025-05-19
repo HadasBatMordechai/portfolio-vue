@@ -264,7 +264,6 @@ export default {
 
   <section id="projects" class="bg-indigo-50/50">
     <h3>Selected projects</h3>
-    <!-- TODO complete soon... -->
 
     <swiper-container ref="swiper">
       <swiper-slide>
