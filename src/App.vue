@@ -1,11 +1,6 @@
 <script>
 import { register as registerSwiper } from 'swiper/element/bundle';
 
-//import 'swiper/swiper-bundle.css';
-
-//import 'swiper/css';
-//import 'swiper/css/navigation';
-
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue';
 import AppNav from './components/AppNav.vue';
 
@@ -19,6 +14,20 @@ export default {
     };
   },
 
+  methods: {
+    adjustIframeHeight() {
+      try {
+        const iframe = this.$refs.myIframe;
+        const iframeDocument =
+          iframe.contentDocument || iframe.contentWindow.document;
+        iframe.style.height = iframeDocument.body.scrollHeight + 'px';
+      } catch (error) {
+        console.error('שגיאה בניסיון להתאים את גובה ה-iframe:', error);
+        console.warn('ייתכן שיש בעיית Cross-Origin.');
+      }
+    },
+  },
+
   beforeMount() {
     registerSwiper();
   },
@@ -26,18 +35,14 @@ export default {
   mounted() {
     const swiperEl = this.$refs.swiper;
     this.swiperInstance = {
-      // configure Swiper to use modules
-      //modules: [Navigation, Pagination],
       loop: true,
       navigation: true,
-      spaceBetween: 30,
+      spaceBetween: 20,
       slidesPerView: 1.5,
     };
 
-    // now we need to assign all parameters to Swiper element
     Object.assign(swiperEl, this.swiperInstance);
 
-    // and now initialize it
     swiperEl.initialize();
   },
 
@@ -56,25 +61,32 @@ export default {
   <header
     class="bg-indigo-50 bg-[url('./assets/bg-pattern.png')] bg-size-[60px] px-8 md:px-10 lg:px-20 pb-8 md:pb-10 pt-12 md:pt-28 md:flex items-center">
     <div class="md:w-1/3">
-      <img class="w-40 sm:w-48 lg:w-72 2xl:w-96 max-w-full mx-auto rounded-full aspect-square object-cover"
-        src="./assets/me.jpg" alt="Hadas Ben Mordechai profile image" width="400" height="400" />
+      <img
+        class="w-40 sm:w-48 lg:w-72 2xl:w-96 max-w-full mx-auto rounded-full aspect-square object-cover"
+        src="./assets/me.jpg"
+        alt="Hadas Ben Mordechai profile image"
+        width="400"
+        height="400" />
     </div>
     <div class="md:flex-1 max-md:text-center max-md:pt-5 md:ps-10 lg:ps-20">
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl text-indigo-950 font-bold">
+      <h1
+        class="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl text-indigo-950 font-bold">
         Hadas Ben Mordechai
       </h1>
       <h2 class="text-lg sm:text-xl lg:text-3xl py-1 md:py-2 lg:py-5">
         Frontend Developer
       </h2>
       <p class="font-light text-sm sm:text-base lg:text-lg 2xl:text-xl">
-        Vue.js | JavaScript
+        Vue.js | JavaScript | Tailwind CSS
       </p>
       <div class="flex justify-center md:justify-start pt-5 lg:pt-10">
-        <a href="#contact"
+        <a
+          href="#contact"
           class="text-sm lg:text-base hover:text-white bg-indigo-400 hover:bg-indigo-500 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:mx-0">
           Contact Me
         </a>
-        <a href="#projects"
+        <a
+          href="#projects"
           class="text-sm lg:text-base font-light bg-indigo-100 hover:bg-indigo-200 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:ms-4">
           View Projects
         </a>
@@ -130,22 +142,47 @@ export default {
           </li>
         </ul>
       </div>
-      <div class="md:w-1/4 grid grid-cols-4 md:grid-cols-2 gap-3 sm:gap-5 lg:gap-8 2xl:gap-10 pt-5 md:pt-0">
-        <a class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
-          href="https://vite.dev" target="_blank">
-          <img class="block w-20 h-auto" src="./assets/vite.svg" alt="Vite logo" loading="lazy" />
+      <div
+        class="md:w-1/4 grid grid-cols-4 md:grid-cols-2 gap-3 sm:gap-5 lg:gap-8 2xl:gap-10 pt-5 md:pt-0">
+        <a
+          class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          href="https://vite.dev"
+          target="_blank">
+          <img
+            class="block w-20 h-auto"
+            src="./assets/vite.svg"
+            alt="Vite logo"
+            loading="lazy" />
         </a>
-        <a class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
-          href="https://vuejs.org/" target="_blank">
-          <img class="block w-20 h-auto" src="./assets/vue.svg" alt="Vue logo" loading="lazy" />
+        <a
+          class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          href="https://vuejs.org/"
+          target="_blank">
+          <img
+            class="block w-20 h-auto"
+            src="./assets/vue.svg"
+            alt="Vue logo"
+            loading="lazy" />
         </a>
-        <a class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
-          href="https://tailwindcss.com" target="_blank">
-          <img class="block w-20 h-auto" src="./assets/tailwind.svg" alt="Tailwind CSS logo" loading="lazy" />
+        <a
+          class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          href="https://tailwindcss.com"
+          target="_blank">
+          <img
+            class="block w-20 h-auto"
+            src="./assets/tailwind.svg"
+            alt="Tailwind CSS logo"
+            loading="lazy" />
         </a>
-        <a class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
-          href="https://headlessui.com/v1/vue" target="_blank">
-          <img class="block w-20 h-auto" src="./assets/headlessui.svg" alt="HeadlessUI logo" loading="lazy" />
+        <a
+          class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          href="https://headlessui.com/v1/vue"
+          target="_blank">
+          <img
+            class="block w-20 h-auto"
+            src="./assets/headlessui.svg"
+            alt="HeadlessUI logo"
+            loading="lazy" />
         </a>
       </div>
     </div>
@@ -154,69 +191,116 @@ export default {
   <section id="hobbies" class="bg-gradient-to-b from-indigo-50/10 via-white">
     <h3>Outside of code</h3>
     <h4>💖 My favorite things when I'm not coding:</h4>
-    <ul class="grid grid-cols-3 gap-3 sm:gap-5 lg:gap-8 max-w-[39rem] lg:max-w-[44rem] text-center pt-3 md:pt-5">
-      <li class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
-        <svg class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto p-1.5 sm:p-2 lg:p-3" role="none"
-          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round"
+    <ul
+      class="grid grid-cols-3 gap-3 sm:gap-5 lg:gap-8 max-w-[39rem] lg:max-w-[44rem] text-center pt-3 md:pt-5">
+      <li
+        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
+        <svg
+          class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto p-1.5 sm:p-2 lg:p-3"
+          role="none"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
             d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
         </svg>
         <span class="block font-normal text-sm lg:text-base pt-1 sm:pt-2">
           Singing
         </span>
-        <span class="block text-[0.7rem]/tight sm:text-xs lg:text-sm px-3 pt-0.5">
+        <span
+          class="block text-[0.7rem]/tight sm:text-xs lg:text-sm px-3 pt-0.5">
           my #1 passion!
         </span>
       </li>
-      <li class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
-        <svg class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto mt-1 -mb-1 lg:mt-2 lg:-mb-2" role="none"
-          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round"
+      <li
+        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
+        <svg
+          class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto mt-1 -mb-1 lg:mt-2 lg:-mb-2"
+          role="none"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
             d="M3 17c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1m-9-5V5.75a1.75 1.75 0 013.5 0V12m0 0V5.75a1.75 1.75 0 013.5 0V12m-12 0h15" />
         </svg>
 
         <span class="block font-normal text-sm lg:text-base pt-1 sm:pt-2">
           Swimming
         </span>
-        <span class="block text-[0.7rem]/tight sm:text-xs lg:text-sm px-3 pt-0.5">
+        <span
+          class="block text-[0.7rem]/tight sm:text-xs lg:text-sm px-3 pt-0.5">
           my newest obsession
         </span>
       </li>
-      <li class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
-        <svg class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto p-1.5 sm:p-2 lg:p-3" role="none"
-          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round"
+      <li
+        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
+        <svg
+          class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto p-1.5 sm:p-2 lg:p-3"
+          role="none"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
             d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
         </svg>
 
         <span class="block font-normal text-sm lg:text-base pt-1 sm:pt-2">
           Writing
         </span>
-        <span class="block text-[0.7rem]/tight sm:text-xs lg:text-sm px-3 pt-0.5">
+        <span
+          class="block text-[0.7rem]/tight sm:text-xs lg:text-sm px-3 pt-0.5">
           thoughts to paper
         </span>
       </li>
     </ul>
   </section>
 
-  <section id="projects" class="bg-indigo-50/50">
-    <h3>Selected projects</h3>
+  <section id="projects" class="bg-indigo-50">
+    <h3 class="-mb-8 md:-mb-10">Selected projects</h3>
     <!-- TODO complete soon... -->
 
     <swiper-container ref="swiper">
-      <swiper-slide>
-        <a href="https://your-way.org.il/he" target="_blank" class="p-8 underline hover:text-blue-950">
+      <swiper-slide class="mt-14 bg-white p-2 sm:p-5 rounded-xl h-auto">
+        <div class="text-base lg:text-lg font-normal">
           Your Way - Ministry of Transport and Road Safety
+        </div>
+        <a
+          href="https://your-way.org.il/he"
+          target="_blank"
+          class="underline hover:text-blue-950">
+          Link
         </a>
       </swiper-slide>
-      <swiper-slide>
-        <a href="https://harama.co.il/en" target="_blank" class="p-8 underline hover:text-blue-950">
+      <swiper-slide class="mt-14 bg-white p-2 sm:p-5 rounded-xl h-auto">
+        <div class="text-base lg:text-lg font-normal">
           HARAMA Golan Heights Project
+        </div>
+        <a
+          href="https://harama.co.il/en"
+          target="_blank"
+          class="mt-5 md:mt-10 underline hover:text-blue-950">
+          Link
         </a>
       </swiper-slide>
-      <swiper-slide>
-        <a href="https://feibel-15.co.il" target="_blank" class="p-8 underline hover:text-blue-950">
-          Feibel 15
+      <swiper-slide class="mt-14 bg-white p-2 sm:p-5 rounded-xl h-auto">
+        <div class="text-base lg:text-lg font-normal">Feibel 15</div>
+        <a
+          href="https://feibel-15.co.il"
+          target="_blank"
+          class="mt-5 md:mt-10 underline hover:text-blue-950">
+          Link
         </a>
       </swiper-slide>
     </swiper-container>
@@ -227,7 +311,8 @@ export default {
       <h3>Why me</h3>
 
       <TabGroup>
-        <TabList class="flex justify-center sm:justify-start text-sm sm:text-base lg:text-lg mt-5">
+        <TabList
+          class="flex justify-center sm:justify-start text-sm sm:text-base lg:text-lg mt-5">
           <Tab as="template" v-slot="{ selected }">
             <button
               class="w-1/3 sm:w-auto cursor-pointer rounded-t-2xl px-3 lg:px-5 py-1 transition-opacity bg-[#98FB98]"
@@ -258,7 +343,8 @@ export default {
             </button>
           </Tab>
         </TabList>
-        <TabPanels class="text-sm sm:text-base/relaxed border-t border-[#808080]/30 px-1 sm:px-2 py-2 sm:py-3">
+        <TabPanels
+          class="text-sm sm:text-base/relaxed border-t border-[#808080]/30 px-1 sm:px-2 py-2 sm:py-3">
           <TabPanel>
             I'm passionate about writing clean, high-performance code and
             ensuring pixel-perfect execution, with a strong commitment to
@@ -284,7 +370,11 @@ export default {
       </TabGroup>
     </div>
     <div class="md:flex-1 flex justify-center items-center">
-      <img class="hidden md:block w-24 h-auto" src="./assets/question-mark.png" alt="" loading="lazy" />
+      <img
+        class="hidden md:block w-24 h-auto"
+        src="./assets/question-mark.png"
+        alt=""
+        loading="lazy" />
     </div>
   </section>
 
@@ -293,15 +383,18 @@ export default {
     <!-- TODO complete soon... -->
     <p>
       Connect with me on
-      <a href="https://www.linkedin.com/in/hadas-ben-mordechai/" target="_blank" class="underline hover:text-blue-950">
+      <a
+        href="https://www.linkedin.com/in/hadas-ben-mordechai/"
+        target="_blank"
+        class="mt-5 md:mt-10 underline hover:text-blue-950">
         LinkedIn
       </a>
-      or send me an email to
-      hadasi135 at gmail.com.
+      or send me an email to hadasi135 at gmail.com.
     </p>
   </section>
 
-  <footer class="p-5 md:px-10 text-center text-xs lg:text-sm font-light bg-indigo-100">
+  <footer
+    class="p-5 md:px-10 text-center text-xs lg:text-sm font-light bg-indigo-100">
     Copyright © {{ new Date().getFullYear() }} All rights reserved
     <span class="max-sm:hidden"> | </span>
     <br class="sm:hidden" />
@@ -309,7 +402,23 @@ export default {
   </footer>
   <!--
   <HelloWorld msg="Vite + Vue" />
--->
-</template>
+--></template>
 
-<style scoped></style>
+<style scoped>
+swiper-container {
+  --swiper-navigation-color: #808080;
+  --swiper-navigation-size: 25px;
+  --swiper-navigation-top-offset: 15px;
+  height: auto;
+}
+
+swiper-container::part(button-prev) {
+  left: auto;
+  right: 45px;
+}
+
+swiper-container::part(button-next) {
+  left: auto;
+  right: 0;
+}
+</style>
