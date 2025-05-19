@@ -381,7 +381,7 @@ export default {
 
   <section id="contact" class="bg-gradient-to-b from-indigo-50/50 via-white">
     <h3>Get in touch</h3>
-    <h4>II'd love to hear from you!</h4>
+    <h4>I'd love to hear from you!</h4>
     <p class="pt-3">
       Feel free to connect with me on
       <a
