@@ -11,6 +11,26 @@ export default {
     return {
       at_top: true, // TODO
       swiperInstance: null,
+      projects: [
+        {
+          name: 'Your Way - Ministry of Transport and Road Safety',
+          link: 'https://your-way.org.il/he',
+          content:
+            "Special and complex website involving data extraction from the Jerusalem Municipality's GIS system and the Ministry of Transportation's GTFS and receiving real-time information. I was responsible for all frontend development on this website",
+        },
+        {
+          name: 'HARAMA Golan Heights Project',
+          link: 'https://harama.co.il/en',
+          content:
+            'A luxury project with simple, fast and extremely accessible code (over 96% on the Lighthouse Accessibility Index) developed from scratch using the latest technologies and testing tools, with a fully customized CMS',
+        },
+        {
+          name: 'Feibel 15',
+          link: 'https://feibel-15.co.il',
+          content:
+            'Example of more than hundred of static mini sites & landing pages',
+        },
+      ],
     };
   },
 
@@ -137,9 +157,11 @@ export default {
             was built in <strong>VS Code</strong>.
           </li>
           <li>
-            The codebase is managed with <strong>Git</strong> and hosted on
-            <strong>GitHub</strong>, with automated processes facilitated by
-            GitHub Actions.
+            The project's codebase is managed with <strong>Git</strong> and
+            hosted on GitHub Pages, with deployment automated by GitHub Actions.
+          </li>
+          <li>
+            Typically, I implement Figma designs; Here, I used AI assistance.
           </li>
         </ul>
       </div>
@@ -268,42 +290,30 @@ export default {
     </ul>
   </section>
 
-  <section id="projects" class="bg-indigo-50 pb-5">
+  <section
+    id="projects"
+    class="text-[0.65rem] sm:text-xs lg:text-sm bg-indigo-50 pb-5">
     <h3 class="-mb-8 md:-mb-10">Selected projects</h3>
     <!-- TODO complete soon... -->
 
     <swiper-container ref="swiper">
-      <swiper-slide class="mt-14 bg-white p-2 sm:p-5 rounded-xl h-auto">
-        <div class="text-base lg:text-lg font-normal">
-          Your Way - Ministry of Transport and Road Safety
-        </div>
-        <a
-          href="https://your-way.org.il/he"
-          target="_blank"
-          class="underline hover:text-blue-950">
-          Link
-        </a>
-      </swiper-slide>
-      <swiper-slide class="mt-14 bg-white p-2 sm:p-5 rounded-xl h-auto">
-        <div class="text-base lg:text-lg font-normal">
-          HARAMA Golan Heights Project
-        </div>
-        <a
-          href="https://harama.co.il/en"
-          target="_blank"
-          class="mt-5 md:mt-10 underline hover:text-blue-950">
-          Link
-        </a>
-      </swiper-slide>
-      <swiper-slide class="mt-14 bg-white p-2 sm:p-5 rounded-xl h-auto">
-        <div class="text-base lg:text-lg font-normal">Feibel 15</div>
-        <a
-          href="https://feibel-15.co.il"
-          target="_blank"
-          class="mt-5 md:mt-10 underline hover:text-blue-950">
-          Link
-        </a>
-      </swiper-slide>
+      <template v-for="i in projects" :key="i.name">
+        <swiper-slide
+          class="mt-14 bg-white p-2 sm:p-5 lg:py-8 rounded-xl h-auto">
+          <div class="text-sm sm:text-base lg:text-lg font-normal">
+            {{ i.name }}
+          </div>
+          <p class="py-1">
+            {{ i.content }}
+          </p>
+          <a
+            :href="i.link"
+            target="_blank"
+            class="underline hover:text-blue-950">
+            Link
+          </a>
+        </swiper-slide>
+      </template>
     </swiper-container>
   </section>
 
