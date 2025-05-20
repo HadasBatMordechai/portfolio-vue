@@ -310,7 +310,7 @@ export default {
             :href="i.link"
             target="_blank"
             class="underline hover:text-blue-950">
-            Link
+            View Site
           </a>
         </swiper-slide>
       </template>
