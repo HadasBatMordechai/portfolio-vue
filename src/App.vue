@@ -16,36 +16,34 @@ export default {
           name: 'Your Way - Ministry of Transport and Road Safety',
           link: 'https://your-way.org.il/he',
           content:
-            "Special and complex website involving data extraction from the Jerusalem Municipality's GIS system and the Ministry of Transportation's GTFS and receiving real-time information. I was responsible for all frontend development on this website",
+            "Special and complex website involving data extraction from the Jerusalem Municipality's GIS system and the Ministry of Transportation's GTFS and receiving real-time information. I was responsible for all frontend development on this website.",
         },
         {
           name: 'HARAMA Golan Heights Project',
           link: 'https://harama.co.il/en',
           content:
-            'A luxury project with simple, fast and extremely accessible code (over 96% on the Lighthouse Accessibility Index) developed from scratch using the latest technologies and testing tools, with a fully customized CMS',
+            'A luxury project with simple, fast and extremely accessible code (over 96% on the Lighthouse Accessibility Index), developed from scratch using the latest technologies and testing tools, with a fully customized CMS.',
         },
         {
           name: 'Feibel 15',
           link: 'https://feibel-15.co.il',
           content:
-            'Example of more than hundred of static mini sites & landing pages',
+            'Showcase of over 100 static mini-sites and landing pages, all meticulously built with modern, cutting-edge web technologies, and best practices, ensuring high performance and a seamless user experience across all devices.',
+        },
+        {
+          name: 'Country Park',
+          link: 'https://country-park.co.il/he',
+          content:
+            'Marketing Website for a Country Club with Near-Perfect Accessibility - almoust 100% on the Lighthouse Accessibility Index! Developed from scratch with a fully customized CMS.',
+        },
+        {
+          name: 'Taaman Real Estate',
+          link: 'https://www.taaman-nadlan.com/he',
+          content:
+            'Real Estate Marketing Website featuring dynamic investor relations data pulled from the stock exchange. Developed from scratch using testing tools, with a fully customized CMS.',
         },
       ],
     };
-  },
-
-  methods: {
-    adjustIframeHeight() {
-      try {
-        const iframe = this.$refs.myIframe;
-        const iframeDocument =
-          iframe.contentDocument || iframe.contentWindow.document;
-        iframe.style.height = iframeDocument.body.scrollHeight + 'px';
-      } catch (error) {
-        console.error('שגיאה בניסיון להתאים את גובה ה-iframe:', error);
-        console.warn('ייתכן שיש בעיית Cross-Origin.');
-      }
-    },
   },
 
   beforeMount() {
@@ -294,8 +292,6 @@ export default {
     id="projects"
     class="text-[0.65rem] sm:text-xs lg:text-sm bg-indigo-50 pb-5">
     <h3 class="-mb-8 md:-mb-10">Selected projects</h3>
-    <!-- TODO complete soon... -->
-
     <swiper-container ref="swiper">
       <template v-for="i in projects" :key="i.name">
         <swiper-slide
