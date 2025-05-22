@@ -167,8 +167,7 @@ export default {
           </li>
           <li>
             For accessibility and effects, I also installed
-            <strong>HeadlessUI</strong> and <strong>animate.css</strong>, which
-            I plan to use in upcoming iterations.
+            <strong>HeadlessUI</strong> and <strong>animate.css</strong>.
           </li>
           <li>
             We've recently started using <strong>Prettier</strong> (with custom
@@ -185,6 +184,10 @@ export default {
           </li>
           <li>
             Typically, I implement Figma designs; Here, I used AI assistance.
+          </li>
+          <li>
+            <strong>What's next?</strong> I plan to re-implement this page using
+            React & TypeScript.
           </li>
         </ul>
       </div>
