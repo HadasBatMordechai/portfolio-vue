@@ -1,15 +1,25 @@
 <script>
+import 'animate.css';
+
 import { register as registerSwiper } from 'swiper/element/bundle';
 
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue';
 import AppNav from './components/AppNav.vue';
+import ObserveIntersection from './components/ObserveIntersection.vue';
 
 export default {
   name: 'App',
-  components: { TabGroup, TabList, Tab, TabPanels, TabPanel, AppNav },
+  components: {
+    TabGroup,
+    TabList,
+    Tab,
+    TabPanels,
+    TabPanel,
+    AppNav,
+    ObserveIntersection,
+  },
   data() {
     return {
-      at_top: true, // TODO
       swiperInstance: null,
       projects: [
         {
@@ -86,18 +96,33 @@ export default {
         width="400"
         height="400" />
     </div>
-    <div class="md:flex-1 max-md:text-center max-md:pt-5 md:ps-10 lg:ps-20">
+    <ObserveIntersection
+      v-slot="{ visible }"
+      class="md:flex-1 max-md:text-center max-md:pt-5 md:ps-10 lg:ps-20">
       <h1
-        class="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl text-indigo-950 font-bold">
+        class="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl text-indigo-950 font-bold"
+        :class="{ 'animate__animated animate__fadeIn': visible }">
         Hadas Ben Mordechai
       </h1>
-      <h2 class="text-lg sm:text-xl lg:text-3xl py-1 md:py-2 lg:py-5">
+      <h2
+        class="text-lg sm:text-xl lg:text-3xl py-1 md:py-2 lg:py-5"
+        :class="{
+          'animate__animated animate__fadeIn animate__delay-1s': visible,
+        }">
         Frontend Developer
       </h2>
-      <p class="font-light text-sm sm:text-base lg:text-lg 2xl:text-xl">
+      <p
+        class="font-light text-sm sm:text-base lg:text-lg 2xl:text-xl"
+        :class="{
+          'animate__animated animate__fadeIn animate__delay-2s': visible,
+        }">
         Vue.js | JavaScript | Tailwind CSS
       </p>
-      <div class="flex justify-center md:justify-start pt-5 lg:pt-10">
+      <div
+        class="flex justify-center md:justify-start pt-5 lg:pt-10"
+        :class="{
+          'animate__animated animate__fadeIn animate__delay-3s': visible,
+        }">
         <a
           href="#contact"
           class="text-sm lg:text-base hover:text-white bg-indigo-400 hover:bg-indigo-500 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:mx-0">
@@ -109,7 +134,7 @@ export default {
           View Projects
         </a>
       </div>
-    </div>
+    </ObserveIntersection>
   </header>
 
   <section id="about">
@@ -163,10 +188,12 @@ export default {
           </li>
         </ul>
       </div>
-      <div
+      <ObserveIntersection
+        v-slot="{ visible }"
         class="md:w-1/4 grid grid-cols-4 md:grid-cols-2 gap-3 sm:gap-5 lg:gap-8 2xl:gap-10 pt-5 md:pt-0">
         <a
           class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          :class="{ 'animate__animated animate__fadeIn': visible }"
           href="https://vite.dev"
           target="_blank">
           <img
@@ -177,6 +204,9 @@ export default {
         </a>
         <a
           class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          :class="{
+            'animate__animated animate__fadeIn animate__delay-1s': visible,
+          }"
           href="https://vuejs.org/"
           target="_blank">
           <img
@@ -187,6 +217,9 @@ export default {
         </a>
         <a
           class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          :class="{
+            'animate__animated animate__fadeIn animate__delay-2s': visible,
+          }"
           href="https://tailwindcss.com"
           target="_blank">
           <img
@@ -197,6 +230,9 @@ export default {
         </a>
         <a
           class="aspect-square flex items-center justify-center bg-gray-100 hover:shadow-lg rounded-xl p-3 sm:p-5 xl:p-8"
+          :class="{
+            'animate__animated animate__fadeIn animate__delay-3s': visible,
+          }"
           href="https://headlessui.com/v1/vue"
           target="_blank">
           <img
@@ -205,17 +241,20 @@ export default {
             alt="HeadlessUI logo"
             loading="lazy" />
         </a>
-      </div>
+      </ObserveIntersection>
     </div>
   </section>
 
   <section id="hobbies" class="bg-gradient-to-b from-indigo-50/10 via-white">
     <h3>Outside of code</h3>
     <h4>💖 My favorite things when I'm not coding:</h4>
-    <ul
+    <ObserveIntersection
+      is="ul"
+      v-slot="{ visible }"
       class="grid grid-cols-3 gap-3 sm:gap-5 lg:gap-8 max-w-[39rem] lg:max-w-[44rem] text-center pt-3 md:pt-5">
       <li
-        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
+        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5"
+        :class="{ 'animate__animated animate__fadeIn': visible }">
         <svg
           class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto p-1.5 sm:p-2 lg:p-3"
           role="none"
@@ -238,7 +277,10 @@ export default {
         </span>
       </li>
       <li
-        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
+        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5"
+        :class="{
+          'animate__animated animate__fadeIn animate__delay-1s': visible,
+        }">
         <svg
           class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto mt-1 -mb-1 lg:mt-2 lg:-mb-2"
           role="none"
@@ -262,7 +304,10 @@ export default {
         </span>
       </li>
       <li
-        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5">
+        class="flex flex-col items-center justify-start bg-indigo-50 rounded-xl py-2 sm:p-5"
+        :class="{
+          'animate__animated animate__fadeIn animate__delay-2s': visible,
+        }">
         <svg
           class="text-indigo-500 block w-9 sm:w-14 lg:w-20 h-auto p-1.5 sm:p-2 lg:p-3"
           role="none"
@@ -285,7 +330,7 @@ export default {
           thoughts to paper
         </span>
       </li>
-    </ul>
+    </ObserveIntersection>
   </section>
 
   <section
@@ -376,13 +421,18 @@ export default {
         </TabPanels>
       </TabGroup>
     </div>
-    <div class="md:flex-1 flex justify-center items-center">
+    <ObserveIntersection
+      v-slot="{ visible }"
+      class="md:flex-1 flex justify-center items-center">
       <img
         class="hidden md:block w-24 h-auto"
+        :class="{
+          'animate__animated animate__pulse animate__delay-0s': visible,
+        }"
         src="./assets/question-mark.png"
         alt=""
         loading="lazy" />
-    </div>
+    </ObserveIntersection>
   </section>
 
   <section id="contact" class="bg-gradient-to-b from-indigo-50/50 via-white">

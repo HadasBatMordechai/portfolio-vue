@@ -4,6 +4,11 @@
   --font-poppins: 'Poppins', sans-serif;
 }
 
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.5s !important;
+}
+
 section {
   @apply text-sm lg:text-base/relaxed font-light px-5 py-8 md:p-10 lg:px-20;
 }
