@@ -118,19 +118,21 @@ export default {
         }">
         Vue.js | JavaScript | Tailwind CSS
       </p>
-      <div
-        class="flex justify-center md:justify-start pt-5 lg:pt-10"
-        :class="{
-          'animate__animated animate__fadeIn animate__delay-3s': visible,
-        }">
+      <div class="flex justify-center md:justify-start pt-5 lg:pt-10">
         <a
           href="#contact"
-          class="text-sm lg:text-base hover:text-white bg-indigo-400 hover:bg-indigo-500 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:mx-0">
+          class="text-sm lg:text-base hover:text-white bg-indigo-400 hover:bg-indigo-500 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:mx-0"
+          :class="{
+            'animate__animated animate__fadeIn animate__delay-3s': visible,
+          }">
           Contact Me
         </a>
         <a
           href="#projects"
-          class="text-sm lg:text-base font-light bg-indigo-100 hover:bg-indigo-200 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:ms-4">
+          class="text-sm lg:text-base font-light bg-indigo-100 hover:bg-indigo-200 transition-colors rounded-lg lg:rounded-xl px-3 py-1 lg:px-5 lg:py-2.5 mx-2 md:ms-4"
+          :class="{
+            'animate__animated animate__fadeIn animate__delay-4s': visible,
+          }">
           View Projects
         </a>
       </div>
@@ -162,7 +164,7 @@ export default {
             <strong>JavaScript</strong>.
           </li>
           <li>
-            In the past, we styled everything with pure CSS — today, we use
+            In the past, we styled everything with pure CSS - today, we use
             <strong>Tailwind CSS</strong> (in this project I used version 4).
           </li>
           <li>
@@ -171,12 +173,12 @@ export default {
           </li>
           <li>
             We've recently started using <strong>Prettier</strong> (with custom
-            formatting rules) and <strong>ESLint</strong> for code analysis — so
+            formatting rules) and <strong>ESLint</strong> for code analysis - so
             of course, I added those too.
           </li>
           <li>
-            Although I typically work with <strong>PhpStorm</strong>, this page
-            was built in <strong>VS Code</strong>.
+            Although I typically work with <strong>PhpStorm</strong> on Linux, I
+            developed this page using <strong>VS Code</strong> on Windows.
           </li>
           <li>
             The project's codebase is managed with <strong>Git</strong> and
@@ -418,7 +420,7 @@ export default {
             For my final project, I conducted research on anomaly detection. I
             developed and compared multiple methods for identifying anomalies
             and making the decisions according to the majority of votes. One of
-            the main techniques I explored was machine learning — I was into AI
+            the main techniques I explored was machine learning - I was into AI
             long before it was cool!
           </TabPanel>
         </TabPanels>
