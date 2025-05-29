@@ -44,7 +44,7 @@ jobs:
         run: npm run format:check
 
       - name: Linting
-        run: npm analyse
+        run: npm run analyse
 
       - name: Build
         run: npm run build
