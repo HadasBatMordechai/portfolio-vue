@@ -188,8 +188,8 @@ export default {
             Typically, I implement Figma designs; Here, I used AI assistance.
           </li>
           <li>
-            <strong>What's next?</strong> I plan to re-implement this page using
-            React & TypeScript.
+            <strong>What's next?</strong>
+            I plan to re-implement this page using React & TypeScript.
           </li>
         </ul>
       </div>
