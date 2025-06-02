@@ -10,7 +10,9 @@
     "format": "prettier --write src",
     "format:check": "prettier --check src",
     "analyse": "eslint src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "vue": "^3.5.13"
@@ -19,16 +21,21 @@
     "@eslint/js": "^9.27.0",
     "@headlessui/vue": "^1.7.23",
     "@tailwindcss/vite": "^4.1.7",
+    "@testing-library/vue": "^8.1.0",
     "@vitejs/plugin-vue": "^5.2.3",
+    "@vitest/coverage-v8": "^3.1.4",
+    "@vue/test-utils": "^2.4.6",
     "animate.css": "^4.1.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-vue": "^10.1.0",
     "globals": "^16.1.0",
+    "happy-dom": "^17.5.6",
     "husky": "^9.1.7",
     "prettier": "3.5.3",
     "swiper": "^11.2.6",
     "tailwindcss": "^4.1.7",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
   }
 }
