@@ -22,5 +22,8 @@ export default defineConfig({
     // simulate DOM with happy-dom
     // (requires installing happy-dom as a peer dependency)
     environment: 'happy-dom',
+    coverage: {
+      thresholds: { statements: 5, functions: 5, branches: 5, lines: 5 }, // TODO update to 80%...
+    },
   },
 });
