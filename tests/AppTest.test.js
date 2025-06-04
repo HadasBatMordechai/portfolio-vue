@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import NavList from '/src/Components/NavList.vue';
+import NavList from '/src/components/NavList.vue';
 
 describe('NavList (navigation)', () => {
   it('should have the correct links data', () => {
