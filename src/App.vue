@@ -142,9 +142,10 @@ export default {
   <section id="about">
     <h3>My story</h3>
     <h4>About me</h4>
-    <p class="max-w-[45rem] pb-2">
-      I'm a Full Stack Developer (with a strong focus on Frontend) with over 4
-      years of experience and a B.Sc. in Software Engineering (graduated
+    <p class="max-w-[50rem] pb-2">
+      I'm a Full Stack Web Developer (with a strong focus on Frontend) with
+      almoust 5 years of experience and a B.Sc. in Software Engineering
+      (graduated
       <em>cum laude</em>).
     </p>
     <h4>What is this page?</h4>
@@ -403,11 +404,11 @@ export default {
         <TabPanels
           class="text-sm sm:text-base/relaxed border-t border-[#808080]/30 px-1 sm:px-2 py-2 sm:py-3">
           <TabPanel>
-            I'm passionate about writing clean, high-performance code and
-            ensuring pixel-perfect execution, with a strong commitment to
-            getting the details right. I'm always eager to learn and elevate
-            both user experience and team spirit (and always sharing just the
-            right playlist to keep the team in flow).
+            I'm passionate about writing clean code and have a sharp eye for
+            detail. I care about crafting great user experiences - and an even
+            better team vibe. I'm responsible and motivated, always learning,
+            always growing, and above all: someone you can count on (just ask
+            anyone I've worked with).
           </TabPanel>
           <TabPanel>
             A frontend position within a dynamic and innovative company, where I
@@ -448,7 +449,7 @@ export default {
       <a
         href="https://www.linkedin.com/in/hadas-ben-mordechai/"
         target="_blank"
-        class="mt-5 md:mt-10 underline hover:text-blue-950">
+        class="mx-1.5 inline-block underline hover:text-blue-950">
         LinkedIn
       </a>
       or send me an email to hadasi135 at gmail.com.
@@ -462,9 +463,7 @@ export default {
     <br class="sm:hidden" />
     Hadas Ben Mordechai
   </footer>
-  <!--
-  <HelloWorld msg="Vite + Vue" />
---></template>
+</template>
 
 <style scoped>
 swiper-container {
