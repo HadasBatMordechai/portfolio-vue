@@ -86,8 +86,18 @@ export default {
 <template>
   <AppNav />
 
+  <div
+    class="absolute top-0 right-0 z-50 p-3 md:px-5 xmd:mt-8 font-light text-xs lg:text-sm">
+    More of a React person?
+    <a
+      href="https://hadasbatmordechai.github.io/react"
+      class="block w-fit mx-auto mt-1 bg-indigo-200 hover:bg-indigo-300 transition-colors rounded-lg lg:rounded-xl px-1.5 py-0.5 lg:px-2.5 lg:py-1">
+      Try React version
+    </a>
+  </div>
+
   <header
-    class="bg-indigo-50 bg-[url('./assets/bg-pattern.png')] bg-size-[60px] px-8 md:px-10 lg:px-20 pb-8 md:pb-10 pt-12 md:pt-28 md:flex items-center">
+    class="bg-indigo-50 bg-[url('./assets/bg-pattern.png')] bg-size-[60px] px-8 md:px-10 lg:px-20 pb-8 md:pb-10 pt-16 md:pt-28 md:flex items-center">
     <div class="md:w-1/3">
       <img
         class="w-40 sm:w-48 lg:w-72 2xl:w-96 max-w-full mx-auto rounded-full aspect-square object-cover"
