@@ -2,4 +2,7 @@
 
 Using Vue 3 + JavaScript + Vite
 
-Check out the [React version](https://github.com/HadasBatMordechai/portfolio-react).
+## Next Steps
+- [ ] [React version](https://github.com/HadasBatMordechai/portfolio-react)
+- [ ] Add some tests
+- [ ] Integrate state management
